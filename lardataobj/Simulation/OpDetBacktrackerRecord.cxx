@@ -19,7 +19,7 @@
 #include "lardataobj/Simulation/OpDetBacktrackerRecord.h"
 #include "lardataobj/Simulation/sim.h"
 
-#include "messagefacility/MessageLogger/MessageLogger.h"
+#include "larcoreobj/LoggingUtil/Logging.h"
 namespace sim {
 
   void OBTRHelper::AddScintillationPhotonsToMap(
@@ -41,7 +41,7 @@ namespace sim {
     if ((numberPhotons < std::numeric_limits<double>::epsilon()) ||
         (energy <= std::numeric_limits<double>::epsilon())) {
       // will throw
-      MF_LOG_ERROR("OpDetBacktrackerRecord")
+      LAR_LOG_ERROR
         << "AddTrackPhotons() trying to add to iTimePDclock #" << iTimePDclock << " "
         << numberPhotons << " photons with " << energy
         << " MeV of energy from track ID=" << trackID;
@@ -145,7 +145,7 @@ namespace sim {
     if ((numberPhotons < std::numeric_limits<double>::epsilon()) ||
         (energy <= std::numeric_limits<double>::epsilon())) {
       // will throw
-      MF_LOG_ERROR("OpDetBacktrackerRecord")
+      LAR_LOG_ERROR
         << "AddTrackPhotons() trying to add to iTimePDclock #" << iTimePDclock << " "
         << numberPhotons << " photons with " << energy
         << " MeV of energy from track ID=" << trackID;
@@ -251,7 +251,7 @@ namespace sim {
     // make a map of track ID values to sim::SDP objects
 
     if (startTimePDclock > endTimePDclock) {
-      mf::LogWarning("OpDetBacktrackerRecord")
+      LAR_LOG_WARNING
         << "requested TimePDclock range is bogus: " << startTimePDclock << " " << endTimePDclock
         << " return empty vector";
       return {}; // returns an empty vector
@@ -315,7 +315,7 @@ namespace sim {
     std::vector<sim::TrackSDP> trackSDPs;
 
     if (startTimePDclock > endTimePDclock) {
-      mf::LogWarning("OpDetBacktrackerRecord::TrackSDPs")
+      LAR_LOG_WARNING
         << "requested iTimePDclock range is bogus: " << startTimePDclock << " " << endTimePDclock
         << " return empty vector";
       return trackSDPs;

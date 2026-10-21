@@ -12,16 +12,12 @@
 
 #include "lardataobj/RawData/OpDetPulse.h"
 #include "cetlib_except/exception.h"
-#include "messagefacility/MessageLogger/MessageLogger.h"
 
 namespace raw {
 
   //----------------------------------------------------------------------
   OpDetPulse::OpDetPulse()
   {
-    /*    mf::LogWarning("OpDetPulse") <<"Warning : OpDetPulse default constructor called without "
-				 <<"specification of OpChannel.  This is not recommended";
-    */
   }
 
   //----------------------------------------------------------------------

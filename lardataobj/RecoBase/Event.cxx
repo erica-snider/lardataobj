@@ -8,7 +8,7 @@
 #include "lardataobj/RecoBase/Event.h"
 
 #include "larcoreobj/SimpleTypesAndConstants/PhysicalConstants.h"
-#include "messagefacility/MessageLogger/MessageLogger.h"
+#include "larcoreobj/LoggingUtil/Logging.h"
 
 #include <algorithm> // for std::sort
 #include <iomanip>
@@ -26,9 +26,9 @@ namespace recob {
   double Event::Energy() const
   {
     // loop over all vertex objects and get the
-    mf::LogWarning("Event") << "Event::Energy() is not yet defined.  Need to decide "
-                            << " how to calculate energy of Vertex"
-                            << " Return util:kBogusD for now.";
+    LAR_LOG_WARNING << "Event::Energy() is not yet defined.  Need to decide "
+                    << " how to calculate energy of Vertex"
+                    << " Return util:kBogusD for now.";
 
     return util::kBogusD;
   }
@@ -37,9 +37,9 @@ namespace recob {
   double Event::SigmaEnergy() const
   {
     // loop over all vertex objects and get the
-    mf::LogWarning("Event") << "Event::SigmaEnergy() is not yet defined.  Need to decide "
-                            << " how to calculate uncertainty in energy of Prong/Vertex"
-                            << " Return util:kBogusD for now.";
+    LAR_LOG_WARNING << "Event::SigmaEnergy() is not yet defined.  Need to decide "
+                    << " how to calculate uncertainty in energy of Prong/Vertex"
+                    << " Return util:kBogusD for now.";
 
     return util::kBogusD;
   }

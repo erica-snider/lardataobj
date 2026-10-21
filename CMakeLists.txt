@@ -26,7 +26,6 @@ find_package(nusimdata REQUIRED EXPORT)
 
 find_package(canvas_root_io REQUIRED EXPORT)
 find_package(canvas REQUIRED EXPORT)
-find_package(messagefacility REQUIRED EXPORT)
 find_package(cetlib REQUIRED)
 find_package(cetlib_except REQUIRED EXPORT)
 

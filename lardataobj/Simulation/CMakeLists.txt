@@ -23,8 +23,9 @@ cet_make_library(SOURCE
   PUBLIC
   larcoreobj::geo_vectors
   PRIVATE
+  larcoreobj::LoggingUtil
+  fmt::fmt
   lardataobj::sim
-  messagefacility::MF_MessageLogger
 )
 
 add_subdirectory(Compatibility)

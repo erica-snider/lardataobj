@@ -11,7 +11,7 @@
 #include <numeric>  // std::adjacent_difference()
 
 #include "cetlib_except/exception.h"
-#include "messagefacility/MessageLogger/MessageLogger.h"
+#include "larcoreobj/LoggingUtil/Logging.h"
 
 namespace raw {
 
@@ -1061,9 +1061,12 @@ namespace raw {
           ++lowestb;
 
         if (lowestb > 14) {
-          mf::LogWarning("raw.cxx")
-            << "encoded entry has no set bits!!! " << i << " "
-            << bset.to_string<char, std::char_traits<char>, std::allocator<char>>();
+          static bool warned = false;
+          if (!warned) {
+            LAR_LOG_WARNING << "encoded entry has no set bits!!! " << i << " "
+                            << bset.to_string<char, std::char_traits<char>, std::allocator<char>>();
+            warned = true;
+          }
           continue;
         }
 

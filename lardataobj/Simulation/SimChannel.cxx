@@ -15,7 +15,7 @@
 #include "lardataobj/Simulation/SimChannel.h"
 #include "lardataobj/Simulation/sim.h"
 
-#include "messagefacility/MessageLogger/MessageLogger.h"
+#include "larcoreobj/LoggingUtil/Logging.h"
 
 namespace sim {
 
@@ -61,9 +61,9 @@ namespace sim {
     if ((numberElectrons < std::numeric_limits<double>::epsilon()) ||
         (energy <= std::numeric_limits<double>::epsilon())) {
       // will throw
-      MF_LOG_ERROR("SimChannel") << "AddIonizationElectrons() trying to add to TDC #" << tdc << " "
-                                 << numberElectrons << " electrons with " << energy
-                                 << " MeV of energy from track ID=" << trackID;
+      LAR_LOG_ERROR << "AddIonizationElectrons() trying to add to TDC #" << tdc << " "
+                    << numberElectrons << " electrons with " << energy
+                    << " MeV of energy from track ID=" << trackID;
       return;
     } // if no energy or no electrons
 
@@ -155,7 +155,7 @@ namespace sim {
     // make a map of track ID values to sim::IDE objects
 
     if (startTDC > endTDC) {
-      mf::LogWarning("SimChannel")
+      LAR_LOG_WARNING
         << "requested tdc range is bogus: " << startTDC << " " << endTDC << " return empty vector";
       return {}; // returns an empty vector
     }
@@ -220,7 +220,7 @@ namespace sim {
     std::vector<sim::TrackIDE> trackIDEs;
 
     if (startTDC > endTDC) {
-      mf::LogWarning("SimChannel::TrackIDEs")
+      LAR_LOG_WARNING
         << "requested tdc range is bogus: " << startTDC << " " << endTDC << " return empty vector";
       return trackIDEs;
     }

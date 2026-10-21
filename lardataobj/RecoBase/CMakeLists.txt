@@ -45,7 +45,8 @@ cet_make_library(SOURCE
   ROOT::Core
   ROOT::Physics
   PRIVATE
-  messagefacility::MF_MessageLogger
+  larcoreobj::LoggingUtil
+  fmt::fmt
 )
 
 build_dictionary(DICTIONARY_LIBRARIES

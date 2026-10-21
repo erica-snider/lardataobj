@@ -14,7 +14,8 @@ cet_make_library(SOURCE
   ROOT::Core
   larcoreobj::headers
   PRIVATE
-  messagefacility::MF_MessageLogger
+  larcoreobj::LoggingUtil
+  fmt::fmt
   cetlib_except::cetlib_except
 )
 
